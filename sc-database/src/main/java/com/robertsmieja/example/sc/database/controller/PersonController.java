@@ -2,36 +2,38 @@ package com.robertsmieja.example.sc.database.controller;
 
 import com.robertsmieja.example.sc.database.domain.Person;
 import com.robertsmieja.example.sc.database.repository.PersonRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Mono;
+
+import java.util.Optional;
 
 @RestController("/person")
+@AllArgsConstructor
 public class PersonController {
-
     PersonRepository repository;
 
-    public PersonController(PersonRepository repository) {
-        this.repository = repository;
+    @GetMapping
+    Iterable<Person> findAll() {
+        return repository.findAll();
     }
 
-    @GetMapping
-    Mono<Person> getById(@RequestParam Long id) {
-        return Mono.justOrEmpty(repository.findById(id));
+    @GetMapping("{id}")
+    Optional<Person> getById(Long id) {
+        return repository.findById(id);
     }
 
     @PutMapping
-    void create(@RequestParam Person person){
+    void create(@RequestBody Person person) {
         repository.save(person);
     }
 
     @PostMapping
-    Mono<Person> createOrUpdate(@RequestParam Person person){
-        return Mono.justOrEmpty(repository.save(person));
+    Person createOrUpdate(@RequestBody Person person) {
+        return repository.save(person);
     }
 
     @DeleteMapping
-    Mono<Void> delete(@RequestParam Person person){
+    void delete(@RequestBody Person person) {
         repository.delete(person);
-        return Mono.empty();
     }
 }
