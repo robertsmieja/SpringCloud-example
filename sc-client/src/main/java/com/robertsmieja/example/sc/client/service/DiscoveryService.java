@@ -1,9 +1,8 @@
 package com.robertsmieja.example.sc.client.service;
 
-import com.netflix.appinfo.InstanceInfo;
-import com.netflix.discovery.DiscoveryClient;
-import com.netflix.discovery.shared.Applications;
 import lombok.AllArgsConstructor;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
@@ -17,13 +16,13 @@ import java.util.List;
 public class DiscoveryService {
     DiscoveryClient discoveryClient;
 
-    @ShellMethod("Get all Eureka Applications")
-    Applications getApplications() {
-        return discoveryClient.getApplications();
+    @ShellMethod("Get all Eureka Services")
+    List<String> getServices() {
+        return discoveryClient.getServices();
     }
 
     @ShellMethod("Get all Eureka instances by ID")
-    List<InstanceInfo> getInstancesById(@ShellOption("{$applicationName}") String id) {
-        return discoveryClient.getInstancesById(id);
+    List<ServiceInstance> getInstancesById(@ShellOption("${applicationName}") String id) {
+        return discoveryClient.getInstances(id);
     }
 }
