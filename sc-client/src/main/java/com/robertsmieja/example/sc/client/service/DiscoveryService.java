@@ -22,7 +22,7 @@ public class DiscoveryService {
     }
 
     @ShellMethod("Get all Eureka instances by ID")
-    List<ServiceInstance> getInstancesById(@ShellOption("${applicationName}") String id) {
+    List<ServiceInstance> getInstancesById(@ShellOption("${spring.application.name}") String id) {
         return discoveryClient.getInstances(id);
     }
 }
