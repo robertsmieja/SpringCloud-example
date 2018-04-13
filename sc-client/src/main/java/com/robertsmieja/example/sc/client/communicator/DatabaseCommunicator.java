@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-@FeignClient("database")
+@FeignClient("sc-database")
 public interface DatabaseCommunicator {
 
-    @GetMapping("/person")
+    @GetMapping("/person/")
     Iterable<Person> getAll();
 
     @GetMapping("/person/{id}")

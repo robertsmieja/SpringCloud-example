@@ -7,32 +7,36 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@RestController("/person")
 @AllArgsConstructor
+@RestController
+@RequestMapping("/person")
 public class PersonController {
     PersonRepository repository;
 
-    @GetMapping
+    @GetMapping("hello")
+    String hello() { return "Hello"; }
+
+    @GetMapping("/")
     Iterable<Person> findAll() {
         return repository.findAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     Optional<Person> getById(Long id) {
         return repository.findById(id);
     }
 
-    @PutMapping
+    @PutMapping("/")
     void create(@RequestBody Person person) {
         repository.save(person);
     }
 
-    @PostMapping
+    @PostMapping("/")
     Person createOrUpdate(@RequestBody Person person) {
         return repository.save(person);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/")
     void delete(@RequestBody Person person) {
         repository.delete(person);
     }
