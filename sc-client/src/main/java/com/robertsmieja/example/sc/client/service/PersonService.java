@@ -5,6 +5,7 @@ import com.robertsmieja.example.sc.client.model.Person;
 import lombok.AllArgsConstructor;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellOption;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
@@ -23,10 +24,18 @@ public class PersonService {
         return communicator.getPerson(id);
     }
 
+//    @ShellMethod("Create a Person")
+//    Person create(String firstName, String lastName) {
+//        Person person = Person.builder()
+//                .firstName(firstName)
+//                .lastName(lastName)
+//                .build();
+//        return create(person);
+//    }
+
     @ShellMethod("Create a Person")
-    Person create(Long id, String firstName, String lastName) {
+    Person create(String firstName, String lastName) {
         Person person = Person.builder()
-                .id(id)
                 .firstName(firstName)
                 .lastName(lastName)
                 .build();

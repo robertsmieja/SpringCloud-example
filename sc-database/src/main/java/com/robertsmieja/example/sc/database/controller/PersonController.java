@@ -22,13 +22,13 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    Optional<Person> getById(Long id) {
+    Optional<Person> getById(@PathVariable Long id) {
         return repository.findById(id);
     }
 
     @PutMapping("/")
-    void create(@RequestBody Person person) {
-        repository.save(person);
+    Person create(@RequestBody Person person) {
+        return repository.save(person);
     }
 
     @PostMapping("/")
