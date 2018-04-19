@@ -8,8 +8,8 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 @EnableEurekaServer
 @EnableHystrixDashboard
 @SpringBootApplication
-public class ServerMain {
+public class EurekaMain {
     public static void main(String[] args) {
-        SpringApplication.run(ServerMain.class, args);
+        SpringApplication.run(EurekaMain.class, args);
     }
 }

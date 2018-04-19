@@ -1,3 +1,4 @@
 include 'sc-client'
+include 'sc-config-server'
 include 'sc-database'
-include 'sc-server'
+include 'sc-eureka'
