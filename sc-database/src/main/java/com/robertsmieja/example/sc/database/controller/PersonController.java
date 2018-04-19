@@ -82,7 +82,7 @@ public class PersonController {
 
     private <T> T executeOrError(Supplier<T> executable) {
         int random = RandomUtils.nextInt(0, 101);
-        if (random > errorPercent) {
+        if (random >= (100 - errorPercent)) {
             throw new ServerErrorException("You weren't lucky", (Throwable) null);
         }
         return executable.get();
