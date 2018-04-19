@@ -6,6 +6,7 @@ import com.robertsmieja.example.sc.database.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ServerErrorException;
 
@@ -14,6 +15,7 @@ import java.util.function.Supplier;
 
 @RequiredArgsConstructor
 @RequestMapping("/person")
+@RefreshScope
 @RestController
 public class PersonController {
     final PersonRepository repository;
