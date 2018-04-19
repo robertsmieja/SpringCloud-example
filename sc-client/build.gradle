@@ -2,5 +2,6 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-json'
     compile 'org.springframework.cloud:spring-cloud-starter-openfeign'
     compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    compile 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
     compile 'org.springframework.shell:spring-shell-starter:2.0.0.RELEASE'
 }
