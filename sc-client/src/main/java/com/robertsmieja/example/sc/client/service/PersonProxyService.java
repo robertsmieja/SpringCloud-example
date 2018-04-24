@@ -4,23 +4,25 @@ import com.robertsmieja.example.sc.client.communicator.DatabaseCommunicator;
 import com.robertsmieja.example.sc.client.communicator.DatabaseProxyCommunicator;
 import com.robertsmieja.example.sc.client.model.Person;
 import lombok.AllArgsConstructor;
+import org.springframework.shell.standard.ShellCommandGroup;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
+@ShellCommandGroup
 @ShellComponent
 public class PersonProxyService {
     DatabaseProxyCommunicator communicator;
 
     @ShellMethod("Get all Persons")
-    Iterable<Person> getAll() {
+    Iterable<Person> proxyGetAll() {
         return communicator.getAll();
     }
 
     @ShellMethod("Get a Person")
-    Person get(Long id) {
+    Person proxyGet(Long id) {
         return communicator.getPerson(id);
     }
 
@@ -34,7 +36,7 @@ public class PersonProxyService {
 //    }
 
     @ShellMethod("Create a Person")
-    Person create(String firstName, String lastName) {
+    Person proxyCreate(String firstName, String lastName) {
         Person person = Person.builder()
                 .firstName(firstName)
                 .lastName(lastName)
@@ -47,7 +49,7 @@ public class PersonProxyService {
     }
 
     @ShellMethod("Update a Person")
-    Person update(Long id, String firstName, String lastName) {
+    Person proxyUpdate(Long id, String firstName, String lastName) {
         Person person = Person.builder()
                 .id(id)
                 .firstName(firstName)
@@ -61,7 +63,7 @@ public class PersonProxyService {
     }
 
     @ShellMethod("Delete a person")
-    void delete(Long id, String firstName, String lastName) {
+    void proxyDelete(Long id, String firstName, String lastName) {
         Person person = Person.builder()
                 .id(id)
                 .firstName(firstName)
