@@ -1,3 +1,5 @@
+mainClassName = 'com.robertsmieja.example.sc.database.DatabaseProxyMain'
+
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-json'
     compile 'org.springframework.boot:spring-boot-starter-web'

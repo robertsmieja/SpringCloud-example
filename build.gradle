@@ -12,6 +12,10 @@ buildscript {
     }
 }
 
+task('startCluster') {
+
+}
+
 subprojects {
     apply plugin: 'application'
     apply plugin: 'eclipse'
@@ -24,7 +28,6 @@ subprojects {
     group = 'com.robertsmieja.example'
     version = '0.0.1-SNAPSHOT'
     sourceCompatibility = 1.8
-    mainClassName = '' //dummy value replace by SpringBoot later
 
     repositories {
         mavenCentral()
@@ -62,4 +65,12 @@ subprojects {
     }
 
     tasks['eclipse'].dependsOn tasks['cleanEclipse']
+
+    boolean hasSpringShell = project.configurations.'runtimeClasspath'.allDependencies.matching { Dependency dependency ->
+        dependency.name == 'spring-shell-starter'
+    }
+
+    if(!hasSpringShell) {
+        rootProject.tasks['startCluster'].dependsOn tasks['bootRun']
+    }
 }

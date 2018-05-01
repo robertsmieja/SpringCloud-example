@@ -1,3 +1,4 @@
+mainClassName = 'com.robertsmieja.example.sc.database.DatabaseMain'
 dependencies {
 //    compile "org.postgresql:postgresql:42.2.2"
     compile 'mysql:mysql-connector-java:5.1.46'

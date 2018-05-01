@@ -1,3 +1,5 @@
+mainClassName = 'com.robertsmieja.example.sc.server.ConfigServerMain'
+
 dependencies{
     compile 'org.springframework.cloud:spring-cloud-config-monitor'
     compile 'org.springframework.cloud:spring-cloud-config-server'

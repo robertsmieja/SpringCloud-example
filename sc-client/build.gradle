@@ -1,3 +1,5 @@
+mainClassName = 'com.robertsmieja.example.sc.client.ClientMain'
+
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-json'
     compile 'org.springframework.cloud:spring-cloud-starter-openfeign'
