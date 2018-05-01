@@ -4,6 +4,14 @@ Requirements
 ============
 
 * Java 8
+* Local MySQL Server
+
+## Instructions
+
+* Start the applications:
+```gradlew bootRun```
+* Start the Client CLI
+```gradlew sc-client:bootRun```
 
 ## Development Setup:
 
