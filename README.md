@@ -4,9 +4,16 @@ Requirements
 ============
 
 * Java 8
-* Local MySQL Server
+* Local MariaDB SQL Server
+
+Optional (for Spring Cloud Tracing)
+* Zipkin 
+* RabbitMQ Server
 
 ## Instructions
+
+* Start up a MariaDB SQL server
+** Using Docker: ```docker run --name mariadb-springcloud -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mariadb```
 
 * Start the applications:
 ```gradlew bootRun```

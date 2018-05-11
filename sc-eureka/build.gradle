@@ -1,4 +1,4 @@
-mainClassName = 'com.robertsmieja.example.sc.server.ServerMain'
+mainClassName = 'com.robertsmieja.example.sc.server.EurekaMain'
 
 dependencies{
     compile 'org.springframework.boot:spring-boot-starter-web'
