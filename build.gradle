@@ -66,11 +66,13 @@ subprojects {
 
     tasks['eclipse'].dependsOn tasks['cleanEclipse']
 
-    boolean hasSpringShell = project.configurations.'runtimeClasspath'.allDependencies.matching { Dependency dependency ->
-        dependency.name == 'spring-shell-starter'
-    }
+    afterEvaluate {
+        boolean hasSpringShell = project.configurations.'runtimeClasspath'.allDependencies.matching { Dependency dependency ->
+            dependency.name == 'spring-shell-starter'
+        }
 
-    if(!hasSpringShell) {
-        rootProject.tasks['startCluster'].dependsOn tasks['bootRun']
+        if (!hasSpringShell) {
+            rootProject.tasks['startCluster'].dependsOn tasks['bootRun']
+        }
     }
 }
